@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ask a Question";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form id="frmQuestion" action="/answer" method="get">
+        <h1 class="display-4">Ask your question</h1>
+        <label for="txtYourQuestion">Ask your yes or no question and let the virtual Magic 8 Ball decide your fate.</label>
+
+        <input type="text" id="txtYourQuestion" />
+        <input type="submit" value="Ask Question" />
+    </form>
+    <div id="questionResponse">
+
+    </div>
 </div>
