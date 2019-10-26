@@ -9,9 +9,14 @@ namespace Magic8Ball.Net.Controllers
     using Magic8Ball.Net.Models;
     public class AnswerController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(String q, int ttl)
         {
-            return new JsonResult(EightBallResponses.GetRandomResponse("", 5000));
+            if (ttl < 1000)
+            {
+                ttl = 1000;
+            }
+
+            return new JsonResult(EightBallResponses.GetRandomResponse());
         }
     }
 }
