@@ -2,11 +2,11 @@
 namespace Magic8Ball.Net.Models
 {
     using Magice8Ball.Net.Models.Attributes;
+    using System.Collections.Generic;
     using System;
 
     public class EightBallResponses
     {
-
         private static Random rnd;
 
         static EightBallResponses()
@@ -14,9 +14,26 @@ namespace Magic8Ball.Net.Models
             rnd = new Random();
         }
 
-        public static Magic8Ball GetRandomResponse(String question, int ttl)
+        public String name
         {
-            return (Magic8Ball)rnd.Next(0, 19);
+            get
+            {
+                return "kucksdorfs";
+            }
+        }
+        public Magic8Ball response { get; set; }
+
+        public int delay { get; set; } = 0;
+
+        public List<EightBallResponses> children { get; set; }
+
+        public static EightBallResponses GetRandomResponse()
+        {
+            return new EightBallResponses()
+            {
+                response = (Magic8Ball)rnd.Next(0, 19),
+                delay = 0
+            };
         }
     }
 

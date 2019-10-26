@@ -14,11 +14,11 @@
             }
 
             var ajax = new SK.AJAX({
-                url: "/answer?q=" + encodeURIComponent(text.value),
+                url: "/answer?q=" + encodeURIComponent(text.value) + "&ttl=10000",
                 success: function (result, xhr) {
                     let questionResponse = document.querySelector("div#questionResponse"),
                         currentResponse = document.createElement("div"),
-                        responseValue = Magic8Ball.Responses[result.JSON];
+                        responseValue = Magic8Ball.Responses[result.JSON.response];
 
                     if (!responseValue) {
                         currentResponse.innerHTML = text.value + " <br/> - " + "Unknown response from the magic 8 ball.";
